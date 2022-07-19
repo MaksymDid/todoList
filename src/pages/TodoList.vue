@@ -1,11 +1,12 @@
 <template>
   <div class="List">
+    <AddTodoForm/>
     <div v-if="isLoading" class="loader"></div>
     <template v-else>
       <template v-if="todos.length">
         <h2>Todo:</h2>
         <ul>
-          <ItemLi
+          <TodoItem
             v-for="todo in todos"
             :key="todo.id"
             :todo="todo"
@@ -19,13 +20,15 @@
 </template>
 
 <script>
-import ItemLi from "../components/ItemLi.vue";
 import { mapState } from "vuex";
+import AddTodoForm from '@/components/AddTodoForm'
+import TodoItem from '@/components/TodoItem'
 
 export default {
-  name: "ListGo",
+  name: "TodoList",
   components: {
-    ItemLi,
+    TodoItem,
+    AddTodoForm,
   },
   computed: {
     ...mapState("users", ["todos"]),

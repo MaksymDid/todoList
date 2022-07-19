@@ -3,7 +3,7 @@
     <template v-if="completes.length">
       <h2>Complete:</h2>
       <ul>
-        <ItemLi
+        <TodoItem
           v-for="complete in completes"
           :key="complete.id"
           :todo="complete"
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import ItemLi from "../components/ItemLi.vue";
 import { mapState } from "vuex";
+import TodoItem from '@/components/TodoItem'
 
 export default {
-  name: "ListGo",
+  name: "CompletedList",
   components: {
-    ItemLi,
+    TodoItem,
   },
   computed: {
     ...mapState("users", ["completes"]),

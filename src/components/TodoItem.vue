@@ -22,7 +22,7 @@
 <script>
 import { mapMutations } from "vuex";
 export default {
-  name: "ItemLi",
+  name: "TodoItem",
   props: {
     todo: {
       type: Object,

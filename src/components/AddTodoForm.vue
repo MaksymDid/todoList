@@ -12,7 +12,7 @@
 <script>
 import { mapMutations } from "vuex";
 export default {
-  name: "FormGo",
+  name: "AddTodoForm",
   data: () => ({
     input: "",
     goInput: "",
@@ -21,7 +21,7 @@ export default {
     ...mapMutations("users", ["ADD_ITEM"]),
     goForm() {
       const item = {
-        id: Math.random(),
+        id: Date.now(),
         title: this.input,
         completed: false,
       };
