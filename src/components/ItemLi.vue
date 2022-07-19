@@ -1,13 +1,14 @@
 <template>
   <div>
     <li>
-      <div v-if="!editing" @dblclick="clickOn">
+      <div v-if="!canComplete">
+        {{ todo.title }}
+      </div>
+      <div v-else-if="!editing" @dblclick="clickOn">
         {{ todo.title }}
       </div>
       <input
         v-if="editing"
-        @keyup.enter="clickOn"
-        @dblclick="clickOn"
         @blur="clickOn"
         type="text"
         :value="todo.title"
